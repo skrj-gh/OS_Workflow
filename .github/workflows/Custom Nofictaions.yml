@@ -1,0 +1,12 @@
+name: Custom Notification
+
+on: [push]
+
+jobs:
+  send-notification:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send Custom Notification
+        run: |
+          "Hello, this is a custom notification!"
