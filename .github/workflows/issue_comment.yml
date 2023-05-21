@@ -12,10 +12,3 @@ jobs:
             - name: "dump github context"
               run: echo '${{toJSON(github.event) }}' | jq
               shell: bash
-            - name: Create comment
-              uses: peter-evans/create-or-update-comment@v3
-              with:
-                  issue-number: ${{ github.event.issue.number }}
-                  body: |
-                    "Kuch karte hai, sabar rakhe"
-                  reactions: '+1'
