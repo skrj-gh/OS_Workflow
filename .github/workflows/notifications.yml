@@ -1,5 +1,5 @@
 name: Notifications
-
+run-name: ${{ github.actor }} has updated Repo
 on:
   push:
   pull_request:
