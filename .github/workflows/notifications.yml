@@ -1,0 +1,26 @@
+name: Notifications
+
+on:
+  push:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  send-notification:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Type Of Event
+        id: typeOfEvent
+        run: echo ::set-output name=event::${{ toJson(github.event_name) }}
+
+      - name: Send Notification
+        if: ${{ steps.typeOfEvent.outputs.event == 'push' }}
+        run: |
+          echo Mai aagaya :)
+
+      - name: Send Notification
+        if: ${{ steps.typeOfEvent.outputs.event == 'pull_request' }}
+        run: |
+          echo May I come in ;)
