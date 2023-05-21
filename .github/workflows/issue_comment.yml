@@ -1,14 +1,19 @@
 name: Create a comment on new issues
-
+run-name: new comment
 on:
-    issues:
-        types: [opened]
-
+  issues:
+    types: [opened]
 jobs:
-    comment-with-action:
-        runs-on: ubuntu-latest
-        steps:
-
-            - name: "dump github context"
-              run: echo '${{toJSON(github.event) }}' | jq
-              shell: bash
+  comment-with-action:
+    runs-on: ubuntu-latest
+    steps:
+        - name: "dump github context"
+          run: echo '${{ toJSON(github.event) }}' | jq
+          shell: bash
+        - name: Create comment
+          uses: peter-evans/create-or-update-comment@v3
+          with:
+            issue-number: ${{ github.event.issue.number }}
+            body: |
+              Will solve it soon
+            reactions: '+1'
