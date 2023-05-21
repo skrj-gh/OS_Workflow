@@ -39,5 +39,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send Reminder
+        if: ${{ github.event.schedule }}
         run: |
           echo "Please submit your task by EOD"
