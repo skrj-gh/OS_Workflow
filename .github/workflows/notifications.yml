@@ -18,9 +18,9 @@ jobs:
       - name: Send Notification
         if: ${{ steps.typeOfEvent.outputs.event == 'push' }}
         run: |
-          echo Mai aagaya :)
+          echo 'Mai aagaya :)'
 
       - name: Send Notification
         if: ${{ steps.typeOfEvent.outputs.event == 'pull_request' }}
         run: |
-          echo May I come in ;)
+          echo 'May I come in ;)'
