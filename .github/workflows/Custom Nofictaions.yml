@@ -9,4 +9,4 @@ jobs:
     steps:
       - name: Send Custom Notification
         run: |
-          "Hello, this is a custom notification!"
+          echo Hello, this is a custom notification!
