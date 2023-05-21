@@ -8,11 +8,12 @@ on:
   pull_request_review:
     types:
       - submitted
+  schedule:
+    - cron: '0 20 * * *'
 
 jobs:
   send-notification:
     runs-on: ubuntu-latest
-
     steps:
       - name: Type Of Event
         id: typeOfEvent
@@ -33,3 +34,10 @@ jobs:
         if: ${{ steps.typeOfEvent.outputs.event == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged }}
         run: |
           echo "Ye bandhan toh... "
+
+  send-reminder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Reminder
+        run: |
+          echo "Please submit your task by EOD"
